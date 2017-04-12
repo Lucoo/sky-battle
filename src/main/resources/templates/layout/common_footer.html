@@ -1,0 +1,64 @@
+<div th:fragment="common_footer" xmlns:th="http://www.w3.org/1999/xhtml">
+    <script th:src="@{/scripts/extentions/modernizr.js}"></script>
+    <script th:src="@{/scripts/bootstrap/bootstrap.js}"></script>
+    <script th:src="@{/scripts/jquery/jquery.easing.js}"></script>
+    <script th:src="@{/scripts/jquery/jquery.onscreen.js}"></script>
+    <script th:src="@{/scripts/jquery/jquery.countTo.js}"></script>
+    <script th:src="@{/scripts/perfect-scrollbar/perfect-scrollbar.jquery.js}"></script>
+    <script th:src="@{/scripts/ui/accordion.js}"></script>
+    <script th:src="@{/scripts/ui/animate.js}"></script>
+    <script th:src="@{/scripts/ui/link-transition.js}"></script>
+    <script th:src="@{/scripts/ui/panel-controls.js}"></script>
+    <script th:src="@{/scripts/ui/preloader.js}"></script>
+    <script th:src="@{/scripts/ui/toggle.js}"></script>
+    <script th:src="@{/scripts/urban-constants.js}"></script>
+    <script th:src="@{/scripts/extentions/lib.js}"></script>
+    <script th:src="@{/scripts/validation/bootstrapValidator.js}"></script>
+    <script th:src="@{/scripts/jquery/jquery.dataTables.js}"></script>
+    <!-- page level scripts -->
+    <script th:src="@{/scripts/jquery/chosen/chosen.jquery.min.js}"></script>
+
+    <script th:src="@{/scripts/jquery/checkbo/checkBo.min.js}"></script>
+    <script th:src="@{/scripts/jquery/noty/jquery.noty.packaged.min.js}"></script>
+    <script th:src="@{/scripts/extentions/noty-defaults.js}"></script>
+    <script th:src="@{/scripts/sweet/sweet-alert.min.js}"></script>
+    <!-- /page level scripts -->
+    <!-- initialize page scripts -->
+    <script th:src="@{/scripts/pages/notifications.js}"></script>
+    <!-- initialize page scripts -->
+    <script th:src="@{/scripts/extentions/bootstrap-datatables.js}"></script>
+
+    <!--date-->
+    <script th:src="@{/scripts/bootstrap-datepicker/bootstrap-datepicker.js}"></script>
+    <script th:src="@{/scripts/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.js}"></script>
+    <script th:src="@{/scripts/bootstrap-timepicker/bootstrap-timepicker.min.js}"></script>
+    <!--datetime-->
+    <script th:src="@{/scripts/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js}"></script>
+    <script th:src="@{/scripts/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js}"></script>
+    <!--fileInput-->
+    <script th:src="@{/fileinput/js/fileinput.min.js}"></script>
+    <script th:src="@{/fileinput/js/locales/zh.js}"></script>
+
+    <!-- js -->
+    <script>
+        $(".zb-datepicker").datepicker({
+            format: "yyyy-mm-dd",
+            language: "zh-CN",
+            todayBtn: "linked",
+            changeMonth: true,
+            autoclose: true,
+            clearBtn: true,
+            todayHighlight: true
+        });
+
+        $(".zb-datetimepciker").datetimepicker({
+            format: "yyyy-mm-dd hh:ii:ss",
+            language: "zh-CN",
+            autoclose: true,
+            todayBtn: true,
+            clearBtn: true,
+            pickerPosition: "bottom-left"
+        });
+    </script>
+</div>
+

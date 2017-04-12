@@ -1,0 +1,68 @@
+<head th:fragment="common_header" xmlns:th="http://www.w3.org/1999/xhtml">
+    <meta charset="utf-8">
+    <title>fall in love</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" th:href="@{/images/lucoo.ico}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/styles/bootstrap/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/styles/perfect-scrollbar/perfect-scrollbar.css}">
+    <link rel="stylesheet" th:href="@{/styles/roboto.css}">
+    <link rel="stylesheet" th:href="@{/styles/font-awesome.css}">
+    <link rel="stylesheet" th:href="@{/styles/panel.css}">
+    <link rel="stylesheet" th:href="@{/styles/feather.css}">
+    <link rel="stylesheet" th:href="@{/styles/animate.css}">
+    <link rel="stylesheet" th:href="@{/styles/urban.css}">
+    <link rel="stylesheet" th:href="@{/styles/urban.skins.css}">
+    <link rel="stylesheet" th:href="@{/txs/app.css}">
+    <link rel="stylesheet" th:href="@{/select2/css/select2.css}">
+    <link rel="stylesheet" th:href="@{/styles/summernote/summernote.css}">
+    <link rel="stylesheet" th:href="@{/styles/sweet/sweet-alert.css}">
+    <link rel="stylesheet" th:href="@{/styles/bootstrap-datepicker/bootstrap-datepicker.css}">
+    <link rel="stylesheet" th:href="@{/styles/bootstrap-timepicker/bootstrap-timepicker.min.css}">
+    <link rel="stylesheet" th:href="@{/styles/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css}">
+    <link rel="stylesheet" th:href="@{/fileinput/css/fileinput.min.css}">
+    <script>
+        var dataTableCnLanguage = {
+            "sProcessing": "处理中...",
+            "sLengthMenu": "_MENU_ 记录/页，",
+            "sZeroRecords": "没有匹配的记录",
+            "sEmptyTable": "没有匹配记录",
+            "sInfo": "显示第 _START_ 至 _END_ 项记录，共 _TOTAL_ 项",
+            "sInfoEmpty": "显示第 0 至 0 项记录，共 0 项",
+            "sInfoFiltered": "",
+            "sInfoPostFix": "",
+            "sSearch": "过滤:",
+            'sSearchPlaceholder': '搜索',
+            "sUrl": "",
+            "oPaginate": {
+                "sFirst": "首页",
+                "sPrevious": "上页",
+                "sNext": "下页",
+                "sLast": "末页"
+            }
+        };
+    </script>
+    <script th:src="@{/scripts/jquery/jquery.js}"></script>
+    <script th:src="@{/txs/app.js}"></script>
+    <!--select2-->
+    <script type="text/javascript" th:src="@{/select2/js/select2.min.js}"></script>
+    <script type="text/javascript" th:src="@{/select2/js/mmod.udatas.js}"></script>
+    <script th:src="@{/styles/summernote/summernote.min.js}"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".txs-select").select2({
+                matcher: function (term, text) {
+                    var mod = ZhToPinyin(text);
+                    var tf1 = mod.a.toUpperCase().indexOf(term.toUpperCase()) == 0;
+                    var tf2 = mod.b.toUpperCase().indexOf(term.toUpperCase()) == 0;
+                    return (tf1 || tf2);
+                }
+            });
+        })
+    </script>
+</head>
+<!--<div th:fragment="header(title)" xmlns:th="http://www.w3.org/1999/xhtml">-->
+
+<!--<title th:replace="${title}">lucoo</title>-->
+<!--</div>-->
+

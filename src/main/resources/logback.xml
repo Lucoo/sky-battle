@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="infoRollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/Users/lucoo/study/log/members-service-info.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/Users/lucoo/study/log/members-service-info.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <appender name="errorRollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/Users/lucoo/study/log/members-service-error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/Users/lucoo/study/log/members-service-error.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>WARN</level>
+        </filter>
+    </appender>
+
+    <!-- project default level -->
+    <logger name="com.zb.txs.sky" level="DEBUG"/>
+    <logger name="org.hibernate" level="INFO"/>
+    <logger name="org.springframework" level="INFO"/>
+    <logger name="net.sf" level="INFO"/>
+    <logger name="com.google" level="INFO"/>
+    <logger name="com.googlecode" level="INFO"/>
+    <logger name="org.apache" level="INFO"/>
+
+    <!--log4jdbc -->
+    <logger name="jdbc" level="OFF"/>
+    <!-- <logger name="jdbc.sqltiming" level="INFO"/> -->
+    <logger name="jdbc.sqlonly" level="INFO"/>
+    <logger name="java.sql.Connection" level="DEBUG"/>
+    <logger name="java.sql.Statement" level="DEBUG"/>
+    <logger name="java.sql.PreparedStatement" level="DEBUG"/>
+    <!--sentry日志监控-->
+    <!--<appender name="Sentry" class="com.getsentry.raven.logback.SentryAppender">-->
+        <!--<dsn>http://dc0a419c79bf4e818d4c81fa2c64e5ab:d383f8cac57340e8a9effba77bae1587@116.62.37.131/5?options</dsn>-->
+        <!--<tags>tag1:value1,tag2:value2</tags>-->
+        <!--&lt;!&ndash; Optional, allows to select the ravenFactory &ndash;&gt;-->
+        <!--&lt;!&ndash;<ravenFactory>com.getsentry.raven.DefaultRavenFactory</ravenFactory>&ndash;&gt;-->
+        <!--<filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
+            <!--<level>ERROR</level>-->
+        <!--</filter>-->
+    <!--</appender>-->
+
+    <!--<root level="ERROR">-->
+        <!--<appender-ref ref="Sentry"/>-->
+    <!--</root>-->
+    <!--sentry日志监控-->
+    <root level="INFO">
+        <appender-ref ref="console"/>
+        <appender-ref ref="infoRollingFile"/>
+        <appender-ref ref="errorRollingFile"/>
+    </root>
+</configuration>
